@@ -1,0 +1,7 @@
+{
+  "name": "databrick",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
