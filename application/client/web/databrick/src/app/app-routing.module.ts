@@ -32,6 +32,7 @@ const routes: Routes = [
        { path: '', component: TemplateComponent, pathMatch: 'full'   } ,
 { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
 
+{ path : 'createscreen', loadChildren: () => import('./createscreen/createscreen.module').then(m => m.CreatescreenModule), canActivate: [AuthGuard] } , 
 ];
 
 @NgModule({

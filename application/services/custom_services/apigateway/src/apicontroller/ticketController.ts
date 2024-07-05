@@ -1,0 +1,94 @@
+import * as express from 'express';
+import { Request, Response } from 'express';
+import * as Constant from '../config/Constant';
+import { ApiAdapter }  from '../config/apiAdapter';
+import Controller from '../interface/controller.interface';
+import { CustomLogger } from '../config/Logger'
+
+export class ticketController implements Controller {
+      public router = express.Router();
+
+    constructor() {
+        this.initializeRoutes();
+    }
+
+    private initializeRoutes() {
+        this.router.get('/ticket/:id', this.GpGetEntityById);
+this.router.delete('/ticket/:id', this.GpDelete);
+this.router.put('/ticket', this.GpUpdate);
+this.router.post('/ticket', this.GpCreate);
+this.router.get('/ticket/userid/created_by', this.GpGetNounCreatedBy);
+        //#@gepdelimeterone@#
+        //#@ssofacebookapiroute@#
+        //#@ssogithubapiroute@#
+        //#@gepbankingapiroute@#
+    }
+
+public GpGetEntityById(req: Request, res: Response) {
+            new CustomLogger().showLogger('info', 'Enter into ticketController.ts: GpGetEntityById');
+        new ApiAdapter().get(Constant.TICKETURL + `${req.url}` )
+        .then((res: any) => res.response.json()).then(result => {
+            switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
+            new CustomLogger().showLogger('info', 'Exit from ticketController.ts: GpGetEntityById');
+        }).catch(err => {
+            res.send(err);
+        });
+    }
+public GpDelete(req: Request, res: Response) {
+            new CustomLogger().showLogger('info', 'Enter into ticketController.ts: GpDelete');
+        new ApiAdapter().delete(Constant.TICKETURL + `${req.url}` )
+        .then((res: any) => res.response.json()).then(result => {
+            switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
+            new CustomLogger().showLogger('info', 'Exit from ticketController.ts: GpDelete');
+        }).catch(err => {
+            res.send(err);
+        });
+    }
+public GpUpdate(req: Request, res: Response) {
+            new CustomLogger().showLogger('info', 'Enter into ticketController.ts: GpUpdate');
+        new ApiAdapter().put(Constant.TICKETURL + `${req.url}` , req.body)
+        .then((res: any) => res.response.json()).then(result => {
+            switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
+            new CustomLogger().showLogger('info', 'Exit from ticketController.ts: GpUpdate');
+        }).catch(err => {
+            res.send(err);
+        });
+    }
+public GpCreate(req: Request, res: Response) {
+            new CustomLogger().showLogger('info', 'Enter into ticketController.ts: GpCreate');
+        new ApiAdapter().post(Constant.TICKETURL + `${req.url}` , req.body)
+        .then((res: any) => res.response.json()).then(result => {
+            switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
+            new CustomLogger().showLogger('info', 'Exit from ticketController.ts: GpCreate');
+        }).catch(err => {
+            res.send(err);
+        });
+    }
+public GpGetNounCreatedBy(req: Request, res: Response) {
+            new CustomLogger().showLogger('info', 'Enter into ticketController.ts: GpGetNounCreatedBy');
+        new ApiAdapter().get(Constant.TICKETURL + `${req.url}` )
+        .then((res: any) => res.response.json()).then(result => {
+            switch(req.baseUrl) { case '/mobile': res.send(result); break; case '/web': res.send(result); break; default: res.send(null); }
+            new CustomLogger().showLogger('info', 'Exit from ticketController.ts: GpGetNounCreatedBy');
+        }).catch(err => {
+            res.send(err);
+        });
+    }
+
+    //#@gepdelimeter@#
+
+    //#@apifacebooklogin@#
+
+    //#@apigithublogin@#
+
+    //#@gepbankinglogin@#
+
+
+
+
+
+
+
+
+}
+
