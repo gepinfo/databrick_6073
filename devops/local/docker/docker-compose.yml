@@ -251,7 +251,7 @@ services:
     image: systementry-6073
     container_name: systementry-6073
     ports: 
-      - 8015:8015
+      - 8017:8017
     env_file: .env
     depends_on:
       - mongo
@@ -272,7 +272,7 @@ services:
     image: ticket-6073
     container_name: ticket-6073
     ports: 
-      - 8016:8016
+      - 8018:8018
     env_file: .env
     depends_on:
       - mongo
